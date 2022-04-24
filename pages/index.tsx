@@ -1,21 +1,22 @@
-import React from 'react';
+import React from "react";
 import Head from "next/head";
+import { Header } from "../common/containers";
 
 const Home: React.FC<{}> = () => {
-    return (
-        <div>
-            <Head>
-                <title>ITMO News</title>
-                {/*<link rel="icon" href="/favicon.ico" />*/}
-            </Head>
+  return (
+    <>
+      <Head>
+        <title>ITMO News</title>
+        {/*<link rel="icon" href="/favicon.ico" />*/}
+      </Head>
 
-            <main>
-            </main>
+      <Header />
 
-            <footer>
-            </footer>
-        </div>
-    );
-}
+      <main className={"container"}></main>
+
+      <footer></footer>
+    </>
+  );
+};
 
 export default Home;

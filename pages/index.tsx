@@ -21,6 +21,11 @@ const Home: React.FC = () => {
           <Card />
           <Card />
           <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </main>
 

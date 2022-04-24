@@ -6,6 +6,12 @@
     background: inherit;
 }
 
+.lang_item span {
+    font-weight: 500;
+    font-size: 12px;
+    /*line-height: 48px;*/
+}
+
 .lang_item__image {
     width: 24px;
     height: 24px;

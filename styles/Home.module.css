@@ -1,4 +1,12 @@
-.page_header {
-    width: 100%;
-    height: 40px;
+.main {
+    margin-top: 40px;
+    display: grid;
+    gap: 40px 0;
+}
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: space-around;
 }

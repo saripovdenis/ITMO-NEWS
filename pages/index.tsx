@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Header } from "../components/containers";
+import { Header } from "../common/containers";
 
 const Home: React.FC<{}> = () => {
   return (

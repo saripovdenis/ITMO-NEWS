@@ -1,0 +1,25 @@
+.dropdown {
+    min-width: 68px;
+    min-height: 24px;
+}
+
+.dropdown__content {
+    display: grid;
+    align-items: flex-end;
+}
+
+.dropdown__selector {
+    display: flex;
+}
+
+.dropdown__selector__ico {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown__list {
+    position: absolute;
+}

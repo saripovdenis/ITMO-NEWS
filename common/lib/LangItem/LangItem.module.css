@@ -1,6 +1,6 @@
 .lang_item {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     align-items: center;
     gap: 6px;
     background: inherit;

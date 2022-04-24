@@ -22,4 +22,5 @@
 
 .dropdown__list {
     position: absolute;
+    top: 40px;
 }

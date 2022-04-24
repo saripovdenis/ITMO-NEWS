@@ -12,12 +12,16 @@ interface IDropdown {
 
 const Dropdown: React.FC<IDropdown> = ({ selected, list }) => {
   const [isOpen, toggleIsOpen] = useToggle(false);
-  const dropdownList = list.map(
-    (obj): IListItem => ({
-      isSelected: selected.id === obj.id,
-      item: obj.item,
-    })
-  );
+  const dropdownList = list
+    .filter((obj) => obj.id !== selected.id)
+    .concat([selected])
+    .map(
+      (obj): IListItem => ({
+        id: obj.id,
+        isSelected: selected.id === obj.id,
+        item: obj.item,
+      })
+    );
   return (
     <div className={styles.dropdown} role={"button"} onClick={toggleIsOpen}>
       <div className={styles.dropdown__content}>

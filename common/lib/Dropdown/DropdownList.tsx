@@ -7,8 +7,9 @@ interface IDropdownSelector {
 }
 
 const DropdownList: React.FC<IDropdownSelector> = ({ list }) => {
-  const wrappedList = list.map(({ isSelected, item }) => (
+  const wrappedList = list.map(({ isSelected, item, id }) => (
     <div
+      key={id}
       className={`${styles.dropdown__list__item_container} ${
         isSelected && styles.active
       }`}

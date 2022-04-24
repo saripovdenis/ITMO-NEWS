@@ -6,6 +6,7 @@ interface IItem {
 }
 
 interface IListItem {
+  id: number;
   isSelected: boolean;
   item: React.ReactNode;
 }

@@ -1,0 +1,20 @@
+.lang_item {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 6px;
+    background: inherit;
+}
+
+.lang_item__image {
+    width: 24px;
+    height: 24px;
+}
+
+.lang_item__label {
+    color: var(--black);
+}
+
+.lang_item__label--active {
+    color: var(--white);
+}

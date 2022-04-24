@@ -7,23 +7,30 @@ import { Language, languages } from "../../../constants";
 
 const Header = () => {
   const [selectedLang, setSelectedLang] = useState<Language>(languages.ru);
-  const languagesList = Object.values(languages).map((obj) => (
-    <LangItem
-      src={obj.src}
-      label={obj.label}
-      key={obj.id}
-      onClick={() => setSelectedLang(obj)}
-    />
-  ));
+  const languagesList = Object.values(languages).map((obj) => ({
+    id: obj.id,
+    item: (
+      <LangItem
+        src={obj.src}
+        label={obj.label}
+        key={obj.id}
+        onClick={() => setSelectedLang(obj)}
+      />
+    ),
+  }));
+
   return (
     <header className={styles.header}>
       <div className={"container"}>
         <div className={styles.header__content}>
           <Image src={"/itmo.svg"} width={162} height={16} layout={"fixed"} />
           <Dropdown
-            value={
-              <LangItem src={selectedLang.src} label={selectedLang.label} />
-            }
+            selected={{
+              id: selectedLang.id,
+              item: (
+                <LangItem src={selectedLang.src} label={selectedLang.label} />
+              ),
+            }}
             list={languagesList}
           />
         </div>

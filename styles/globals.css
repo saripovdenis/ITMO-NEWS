@@ -5,6 +5,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow: hidden;
+  color: var(--black);
 }
 
 :root {
@@ -21,8 +22,7 @@ a {
 
 * {
   box-sizing: border-box;
-  outline: 1px solid red;
-  color: var(--black);
+  /*outline: 1px solid red;*/
 }
 
 .container {

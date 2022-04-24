@@ -25,6 +25,7 @@
 .dropdown__list {
     position: absolute;
     top: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown__list__item_container {
@@ -33,6 +34,10 @@
     background: var(--white);
 }
 
-.dropdown__list__item_container--active {
+.active {
     background: var(--gray-lite);
+}
+
+.selected span {
+    color: var(--white);
 }

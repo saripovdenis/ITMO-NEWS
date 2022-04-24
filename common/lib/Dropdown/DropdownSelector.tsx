@@ -3,13 +3,13 @@ import styles from "./Dropdown.module.css";
 import Image from "next/image";
 
 interface IDropdownSelector {
-  value: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const DropdownSelector: React.FC<IDropdownSelector> = ({ value }) => {
+const DropdownSelector: React.FC<IDropdownSelector> = ({ children }) => {
   return (
     <div className={styles.dropdown__selector}>
-      {value}
+      <div className={styles.selected}>{children}</div>
       <div className={styles.dropdown__selector__ico}>
         <Image src={"/arrow.svg"} width={12} height={12} layout={"fixed"} />
       </div>

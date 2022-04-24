@@ -9,7 +9,9 @@
 }
 
 .dropdown__selector {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 7px;
 }
 
 .dropdown__selector__ico {
@@ -23,4 +25,14 @@
 .dropdown__list {
     position: absolute;
     top: 40px;
+}
+
+.dropdown__list__item_container {
+    box-sizing: content-box;
+    padding: 8px;
+    background: var(--white);
+}
+
+.dropdown__list__item_container--active {
+    background: var(--gray-lite);
 }

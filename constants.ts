@@ -28,3 +28,4 @@ const languages: Languages = {
 };
 
 export { languages };
+export type { Language };

@@ -14,7 +14,7 @@ const Dropdown: React.FC<IDropdown> = ({ value, list }) => {
         <div className={styles.dropdown__selector}>
           {value}
           <div className={styles.dropdown__selector__ico}>
-            <Image src={"/arrow"} width={12} height={12} layout={"fixed"} />
+            <Image src={"/arrow.svg"} width={12} height={12} layout={"fixed"} />
           </div>
         </div>
         <div className={styles.dropdown__list}>{list}</div>

@@ -12,13 +12,13 @@ type Languages = {
 
 const ru: Language = {
   id: 1,
-  src: "/country_images/ru",
+  src: "/country_images/ru.svg",
   label: "Рус",
 };
 
 const en: Language = {
   id: 2,
-  src: "/country_images/en",
+  src: "/country_images/en.svg",
   label: "Eng",
 };
 

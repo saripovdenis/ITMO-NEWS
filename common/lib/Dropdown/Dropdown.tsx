@@ -21,7 +21,7 @@ const Dropdown: React.FC<IDropdown> = ({ selected, list }) => {
   return (
     <div className={styles.dropdown} role={"button"} onClick={toggleIsOpen}>
       <div className={styles.dropdown__content}>
-        <DropdownSelector>{selected.item}</DropdownSelector>
+        <DropdownSelector isOpen={isOpen}>{selected.item}</DropdownSelector>
         {isOpen && <DropdownList list={dropdownList} />}
       </div>
     </div>

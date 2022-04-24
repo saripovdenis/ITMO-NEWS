@@ -1,11 +1,12 @@
 .dropdown {
     min-width: 68px;
     min-height: 24px;
+    cursor: pointer;
 }
 
 .dropdown__content {
     display: grid;
-    align-items: flex-end;
+    justify-items: end;
 }
 
 .dropdown__selector {
@@ -20,6 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotate(180deg);
+    transition: transform 0.1s ease-in;
 }
 
 .dropdown__list {
@@ -40,4 +43,8 @@
 
 .selected span {
     color: var(--white);
+}
+
+.rotated {
+    transform: rotate(360deg);
 }

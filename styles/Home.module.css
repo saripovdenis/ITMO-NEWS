@@ -3,10 +3,3 @@
     display: grid;
     gap: 40px 0;
 }
-
-.cardsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    justify-content: space-around;
-}

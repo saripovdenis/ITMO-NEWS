@@ -1,0 +1,1 @@
+export { setNewsReducer } from "./setNews";

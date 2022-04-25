@@ -7,15 +7,51 @@ const HomeContent: React.FC = ({}) => {
     <>
       <h1>Новости и события</h1>
       <div className={styles.cardsContainer}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
+        <Card
+          src={"https://news.itmo.ru/images/news/big/p12541.jpg"}
+          title={"tittle"}
+          description={"description"}
+        />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ interface ICardImage {
 const CardImage: React.FC<ICardImage> = ({ src }) => {
   return (
     <div className={styles.card__image}>
-      <Image src={src} layout={"intrinsic"} />
+      <Image src={src} layout="fill" objectFit="cover" />
     </div>
   );
 };

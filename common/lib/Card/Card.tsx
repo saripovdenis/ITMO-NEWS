@@ -1,21 +1,20 @@
 import React from "react";
 import styles from "./Card.module.css";
+import { CardText } from "./CardText";
+import { CardImage } from "./CardImage";
 
-const Card: React.FC = () => {
+interface ICard {
+  src: string;
+  title: string;
+  description: string;
+}
+
+const Card: React.FC<ICard> = ({ src, title, description }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__content}>
-        <div className={styles.card__image}></div>
-        <div className={styles.card__text}>
-          <div className={styles.card__text__content}>
-            <span className={styles.card__text__title}>2 декабря 2019</span>
-            <span className={styles.card__text__description}>
-              Физарум//Перформер, 2019, Bioroboty019 это мультимедийный
-              перформанс о связи человеческого и нечеловеческого, представленный
-              на Кураторском форуме в Молодёжный...
-            </span>
-          </div>
-        </div>
+        <CardImage src={src} />
+        <CardText title={title} description={description} />
       </div>
     </div>
   );

@@ -1,13 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { newsReducer } from "./news";
+import { createWrapper } from "next-redux-wrapper";
 
-export const store = configureStore({
-  reducer: {
-    news: newsReducer,
-  },
-});
+const makeStore = () =>
+  configureStore({
+    reducer: {
+      news: newsReducer,
+    },
+  });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+type Store = ReturnType<typeof makeStore>;
+
+export const wrapper = createWrapper(makeStore, { debug: false });
+
+export type RootState = ReturnType<Store["getState"]>;
+export type AppDispatch = Store["dispatch"];

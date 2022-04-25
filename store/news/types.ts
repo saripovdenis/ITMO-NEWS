@@ -4,6 +4,7 @@ interface NewsItem {
   image_big: string;
   image_small: string;
   title: string;
+  description: string;
 }
 
 type NewsArray = Array<NewsItem>;

@@ -7,9 +7,15 @@ interface ICard {
   src: string;
   title: string;
   description: string;
+  isLoading?: boolean;
 }
 
-const Card: React.FC<ICard> = ({ src, title, description }) => {
+const Card: React.FC<ICard> = ({
+  src,
+  title,
+  description,
+  isLoading = false,
+}) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__content}>

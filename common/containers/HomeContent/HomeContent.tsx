@@ -6,14 +6,21 @@ import { useToggle, useAppSelector, useAppDispatch } from "../../hooks";
 import { RootState } from "../../../store";
 import { setNews } from "../../../store/news";
 
-const HomeContent: React.FC = ({}) => {
+interface IHomeContent {
+  langId: number;
+}
+
+const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
   const dispatch = useAppDispatch();
   const [isLoading, toggleIsLoading] = useToggle(false);
   const news = useAppSelector(({ news }: RootState) => news.news);
 
   useEffect(() => {
-    toggleIsLoading();
-    apiService.get("").then(({ data }) =>
+    const fetch = async () => {
+      toggleIsLoading();
+      const { data } = await apiService.get(
+        `/news/list/?ver=2.0&language_id=${langId}`
+      );
       dispatch(
         setNews(
           data.news.map(({ id, date, title, image_big, image_small }: any) => ({
@@ -25,10 +32,12 @@ const HomeContent: React.FC = ({}) => {
             description: "description",
           }))
         )
-      )
-    );
-    toggleIsLoading();
-  }, []);
+      );
+      toggleIsLoading();
+    };
+
+    fetch();
+  }, [langId]);
 
   return (
     <>

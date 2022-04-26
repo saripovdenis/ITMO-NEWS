@@ -19,6 +19,29 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.card__skeleton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #dedede;
+    animation: loading .75s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-color: #dedede;
+    }
+    50% {
+        background-color: #d4d4d4;
+    }
+    100% {
+        background-color: #dedede;
+    }
 }
 
 .card__image {

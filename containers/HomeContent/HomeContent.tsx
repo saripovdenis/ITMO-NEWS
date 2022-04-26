@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./HomeContent.module.css";
 import { Card } from "../../common/lib";
 import { apiService, dataIntoNews } from "../../common/utils";
@@ -16,6 +16,7 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
   const router = useRouter();
   const [isLoading, toggleIsLoading] = useToggle(false);
   const news = useAppSelector(({ news }: RootState) => news.news);
+  const isMounted = useRef<boolean>(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -27,7 +28,11 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
       toggleIsLoading();
     };
 
-    fetch();
+    if (isMounted.current) {
+      fetch();
+    } else {
+      isMounted.current = true;
+    }
   }, [langId]);
 
   return (

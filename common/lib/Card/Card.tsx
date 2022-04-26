@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Card.module.css";
 import { CardText } from "./CardText";
 import { CardImage } from "./CardImage";
+import CardSkeleton from "./CardSkeleton";
 
 interface ICard {
   src: string;
@@ -19,8 +20,14 @@ const Card: React.FC<ICard> = ({
   return (
     <div className={styles.card}>
       <div className={styles.card__content}>
-        <CardImage src={src} />
-        <CardText title={title} description={description} />
+        {isLoading ? (
+          <CardSkeleton />
+        ) : (
+          <>
+            <CardImage src={src} />
+            <CardText title={title} description={description} />
+          </>
+        )}
       </div>
     </div>
   );

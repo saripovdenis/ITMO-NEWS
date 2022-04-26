@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./HomeContent.module.css";
-import { Card } from "../../lib";
-import { apiService } from "../../utils";
-import { useToggle, useAppSelector, useAppDispatch } from "../../hooks";
-import { RootState } from "../../../store";
-import { setNews } from "../../../store/news";
+import { Card } from "../../common/lib";
+import { apiService, dataIntoNews } from "../../common/utils";
+import { useToggle, useAppSelector, useAppDispatch } from "../../common/hooks";
+import { RootState } from "../../store";
+import { setNews } from "../../store/news";
 import { useRouter } from "next/router";
 
 interface IHomeContent {
@@ -16,6 +16,7 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
   const router = useRouter();
   const [isLoading, toggleIsLoading] = useToggle(false);
   const news = useAppSelector(({ news }: RootState) => news.news);
+  const isMounted = useRef<boolean>(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -23,24 +24,15 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
       const { data } = await apiService.get(
         `/news/list/?ver=2.0&per_page=9&lead=true&language_id=${langId}`
       );
-      dispatch(
-        setNews(
-          data.news.map(
-            ({ id, date, title, image_big, image_small, lead }: any) => ({
-              id,
-              date,
-              title,
-              image_big,
-              image_small,
-              description: lead,
-            })
-          )
-        )
-      );
+      dispatch(setNews(dataIntoNews(data)));
       toggleIsLoading();
     };
 
-    fetch();
+    if (isMounted.current) {
+      fetch();
+    } else {
+      isMounted.current = true;
+    }
   }, [langId]);
 
   return (

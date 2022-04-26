@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import Head from "next/head";
-import { Header } from "../../common/containers";
-import { languages } from "../../constants";
+import { Header } from "../../containers";
 import { useRouter } from "next/router";
 import { useAppSelector } from "../../common/hooks";
 import { RootState } from "../../store";
 import { NewsItem } from "../../store/news/types";
+import Image from "next/image";
 
 const News: React.FC = () => {
   const router = useRouter();
@@ -28,7 +28,9 @@ const News: React.FC = () => {
         <title>ITMO News</title>
       </Head>
 
-      <Header lang={languages.ru} />
+      <Header>
+        <Image src={"/itmo.svg"} width={162} height={16} layout={"fixed"} />
+      </Header>
 
       <main className={"container"}>
         <h1>{title}</h1>

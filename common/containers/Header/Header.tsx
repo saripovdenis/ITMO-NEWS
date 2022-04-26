@@ -7,10 +7,10 @@ import { Language, languages } from "../../../constants";
 
 interface IHeader {
   lang: Language;
-  setLang: (lang: Language) => void;
+  setLang?: (lang: Language) => void;
 }
 
-const Header: React.FC<IHeader> = ({ lang, setLang }) => {
+const Header: React.FC<IHeader> = ({ lang, setLang = () => {} }) => {
   const languagesList = Object.values(languages).map((obj) => ({
     id: obj.id,
     item: (

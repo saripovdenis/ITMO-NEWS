@@ -5,6 +5,7 @@ import { apiService } from "../../utils";
 import { useToggle, useAppSelector, useAppDispatch } from "../../hooks";
 import { RootState } from "../../../store";
 import { setNews } from "../../../store/news";
+import { useRouter } from "next/router";
 
 interface IHomeContent {
   langId: number;
@@ -12,6 +13,7 @@ interface IHomeContent {
 
 const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const [isLoading, toggleIsLoading] = useToggle(false);
   const news = useAppSelector(({ news }: RootState) => news.news);
 
@@ -19,18 +21,20 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
     const fetch = async () => {
       toggleIsLoading();
       const { data } = await apiService.get(
-        `/news/list/?ver=2.0&language_id=${langId}`
+        `/news/list/?ver=2.0&per_page=9&lead=true&language_id=${langId}`
       );
       dispatch(
         setNews(
-          data.news.map(({ id, date, title, image_big, image_small }: any) => ({
-            id,
-            date,
-            title,
-            image_big,
-            image_small,
-            description: "description",
-          }))
+          data.news.map(
+            ({ id, date, title, image_big, image_small, lead }: any) => ({
+              id,
+              date,
+              title,
+              image_big,
+              image_small,
+              description: lead,
+            })
+          )
         )
       );
       toggleIsLoading();
@@ -46,6 +50,7 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
         {news.map((obj) => (
           <Card
             key={obj.id}
+            onClick={() => router.push(`/news/${obj.id}`)}
             isLoading={isLoading}
             src={obj.image_big}
             title={obj.date}

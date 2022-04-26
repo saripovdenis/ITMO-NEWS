@@ -9,6 +9,7 @@ interface ICard {
   title: string;
   description: string;
   isLoading?: boolean;
+  onClick?: () => void;
 }
 
 const Card: React.FC<ICard> = ({
@@ -16,9 +17,10 @@ const Card: React.FC<ICard> = ({
   title,
   description,
   isLoading = false,
+  onClick = () => {},
 }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onClick}>
       <div className={styles.card__content}>
         {isLoading ? (
           <CardSkeleton />

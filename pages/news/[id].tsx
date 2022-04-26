@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Head from "next/head";
 import { Header } from "../../common/containers";
 import { languages } from "../../constants";
@@ -9,6 +9,7 @@ import { NewsItem } from "../../store/news/types";
 
 const News: React.FC = () => {
   const router = useRouter();
+  const descRef = useRef<HTMLDivElement>(null);
   const { id } = router.query;
   const { title, description } = useAppSelector(
     ({ news }: RootState) =>
@@ -18,6 +19,10 @@ const News: React.FC = () => {
       }
   );
 
+  useEffect(() => {
+    if (descRef.current) descRef.current.innerHTML = description;
+  }, []);
+
   return (
     <>
       <Head>
@@ -26,9 +31,9 @@ const News: React.FC = () => {
 
       <Header lang={languages.ru} />
 
-      <main>
+      <main className={"container"}>
         <h1>{title}</h1>
-        {description}
+        <div ref={descRef} />
       </main>
     </>
   );

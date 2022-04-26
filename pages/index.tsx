@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import { Header } from "../common/containers";
+import { Header, HomeContent } from "../common/containers";
 import styles from "../styles/Home.module.css";
-import { Card } from "../common/lib";
 
 const Home: React.FC = () => {
   return (
@@ -15,21 +14,8 @@ const Home: React.FC = () => {
       <Header />
 
       <main className={`${styles.main} container`}>
-        <h1>Новости и события</h1>
-        <div className={styles.cardsContainer}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+        <HomeContent />
       </main>
-
-      <footer></footer>
     </>
   );
 };

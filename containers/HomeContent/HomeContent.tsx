@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import styles from "./HomeContent.module.css";
-import { Card } from "../../lib";
-import { apiService } from "../../utils";
-import { useToggle, useAppSelector, useAppDispatch } from "../../hooks";
-import { RootState } from "../../../store";
-import { setNews } from "../../../store/news";
+import { Card } from "../../common/lib";
+import { apiService } from "../../common/utils";
+import { useToggle, useAppSelector, useAppDispatch } from "../../common/hooks";
+import { RootState } from "../../store";
+import { setNews } from "../../store/news";
 import { useRouter } from "next/router";
 
 interface IHomeContent {

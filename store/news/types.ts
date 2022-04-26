@@ -13,4 +13,4 @@ interface NewsState {
   news: NewsArray;
 }
 
-export type { NewsState, NewsArray };
+export type { NewsState, NewsArray, NewsItem };

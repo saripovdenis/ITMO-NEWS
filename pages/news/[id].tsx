@@ -15,12 +15,12 @@ const News: React.FC = () => {
     const newsItem = news.news.find((obj: NewsItem) => obj.id === Number(id));
     if (newsItem) return newsItem;
     // При возможности отправлялся бы запрос по id определённой новости
-    throw new Error("Ошибка в получении данных");
+    return { title: "", description: "" };
   });
 
   useEffect(() => {
     if (descRef.current) descRef.current.innerHTML = description;
-  }, []);
+  }, [description]);
 
   return (
     <>

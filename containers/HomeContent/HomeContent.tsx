@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./HomeContent.module.css";
 import { Card } from "../../common/lib";
-import { apiService } from "../../common/utils";
+import { apiService, dataIntoNews } from "../../common/utils";
 import { useToggle, useAppSelector, useAppDispatch } from "../../common/hooks";
 import { RootState } from "../../store";
 import { setNews } from "../../store/news";
@@ -23,20 +23,7 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
       const { data } = await apiService.get(
         `/news/list/?ver=2.0&per_page=9&lead=true&language_id=${langId}`
       );
-      dispatch(
-        setNews(
-          data.news.map(
-            ({ id, date, title, image_big, image_small, lead }: any) => ({
-              id,
-              date,
-              title,
-              image_big,
-              image_small,
-              description: lead,
-            })
-          )
-        )
-      );
+      dispatch(setNews(dataIntoNews(data)));
       toggleIsLoading();
     };
 

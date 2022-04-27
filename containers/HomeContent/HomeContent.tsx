@@ -6,6 +6,9 @@ import { useToggle, useAppSelector, useAppDispatch } from "../../common/hooks";
 import { RootState } from "../../store";
 import { setNews } from "../../store/news";
 import { useRouter } from "next/router";
+import { format } from "date-fns";
+import ru from "date-fns/locale/ru";
+import en from "date-fns/locale/en-US";
 
 interface IHomeContent {
   langId: number;
@@ -45,7 +48,9 @@ const HomeContent: React.FC<IHomeContent> = ({ langId = 1 }) => {
             onClick={() => router.push(`/news/${obj.id}`)}
             isLoading={isLoading}
             src={obj.image_big}
-            title={obj.date}
+            title={format(obj.date, "d MMMM y", {
+              locale: langId === 1 ? ru : en,
+            })}
             description={obj.title}
           />
         ))}

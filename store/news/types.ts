@@ -1,6 +1,6 @@
 interface NewsItem {
   id: number;
-  date: string;
+  date: Date;
   image_big: string;
   image_small: string;
   title: string;
